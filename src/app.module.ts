@@ -1,10 +1,20 @@
+import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppService } from './services/app.service';
+import { TelegramBotService } from './services/telegram-bot.service';
 
 @Module({
-  imports: [],
+  imports: [
+    HttpModule.register({
+      headers: {
+        Accept: '*/*',
+        'Accept-Encoding': 'gzip, deflate, compress',
+        'Content-Type': 'application/json',
+      },
+    }),
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, TelegramBotService],
 })
 export class AppModule {}
