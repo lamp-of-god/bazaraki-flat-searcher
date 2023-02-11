@@ -24,11 +24,7 @@ export class AppService {
             flatInfo.dateAndLocation.includes(location),
           ),
       )
-      .filter((flatInfo) =>
-        ['Today', 'Yesterday'].some((location) =>
-          flatInfo.dateAndLocation.includes(location),
-        ),
-      );
+      .filter((flatInfo) => flatInfo.dateAndLocation.includes('Today'));
 
     const diff = differenceBy(
       candidates,
