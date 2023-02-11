@@ -9,8 +9,9 @@ export class TelegramBotService {
   private __bot: TelegramBot;
 
   constructor() {
-    this.__bot = new TelegramBot(BOT_TOKEN);
-    // this.__bot = new TelegramBot(BOT_TOKEN, { polling: true });
+    this.__bot = new TelegramBot(BOT_TOKEN, {
+      polling: false,
+    });
   }
 
   sendMessageToSubscribers(message: string): void {
