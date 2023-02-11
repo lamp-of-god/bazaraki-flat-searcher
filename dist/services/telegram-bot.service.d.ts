@@ -3,5 +3,4 @@ export declare class TelegramBotService {
     private __bot;
     constructor();
     sendMessageToSubscribers(message: string): void;
-    onApplicationBootstrap(): void;
 }

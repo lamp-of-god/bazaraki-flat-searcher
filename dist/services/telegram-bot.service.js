@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TelegramBotService = void 0;
 const common_1 = require("@nestjs/common");
-const lodash_1 = require("lodash");
 const TelegramBot = require("node-telegram-bot-api");
 const BOT_TOKEN = '6184820169:AAGv0Akax6OAxUC10cqbYZgiVQQWQ-S_eh4';
 let TelegramBotService = class TelegramBotService {
@@ -22,13 +21,6 @@ let TelegramBotService = class TelegramBotService {
     sendMessageToSubscribers(message) {
         this.__subscribers.forEach((subscriber) => {
             this.__bot.sendMessage(subscriber, message);
-        });
-    }
-    onApplicationBootstrap() {
-        this.__bot.on('message', (msg) => {
-            const chatId = msg.chat.id;
-            this.__subscribers = (0, lodash_1.uniq)([...this.__subscribers, chatId]);
-            this.__bot.sendMessage(chatId, 'You have registered to Bazaraki Updates');
         });
     }
 };
