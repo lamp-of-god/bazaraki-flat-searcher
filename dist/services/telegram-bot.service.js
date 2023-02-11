@@ -16,8 +16,8 @@ const TelegramBot = require("node-telegram-bot-api");
 const BOT_TOKEN = '6184820169:AAGv0Akax6OAxUC10cqbYZgiVQQWQ-S_eh4';
 let TelegramBotService = class TelegramBotService {
     constructor() {
-        this.__subscribers = [];
-        this.__bot = new TelegramBot(BOT_TOKEN, { polling: true });
+        this.__subscribers = [152212370, 341752565];
+        this.__bot = new TelegramBot(BOT_TOKEN);
     }
     sendMessageToSubscribers(message) {
         this.__subscribers.forEach((subscriber) => {
